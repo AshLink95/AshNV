@@ -1,0 +1,66 @@
+\documentclass[12pt]{article}
+\nonstopmode
+\usepackage{times}
+\usepackage{setspace}
+\doublespacing
+\usepackage{hyperref}
+\hypersetup{colorlinks = true, urlcolor = red}
+\usepackage[a4paper, left=1in, right=1in, top=1in, bottom=1in]{geometry}
+%Rotating tables (e.g. sideways when too long)
+\usepackage{rotating}
+%Fancy-header package to modify header/page numbering (insert last name)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\rhead{(assignment) \thepage} 
+\renewcommand{\headrulewidth}{0pt} 
+\renewcommand{\footrulewidth}{0pt} 
+%To make sure we actually have header 0.5in away from top edge
+%12pt is one-sixth of an inch. Subtract this from 0.5in to get headsep value
+\setlength\headsep{0.333in}
+%Works cited environment (each entry preceded by \bibent)
+	\newcommand{\bibent}{\noindent \hangindent 40pt}
+	\newenvironment{workscited}{\newpage \begin{center} Works Cited \end{center}}{\newpage }
+
+
+	\begin{document}
+		\begin{flushleft}
+			Ashraf Mrabet\\
+			Professor\\
+			Class\\
+			Month nn 20XX\\
+
+			\begin{center}
+				Paper Title
+			\end{center}
+			\setlength{\parindent}{0.5in}
+			(body)
+			
+			\newpage
+			
+			\begin{center}
+				Notes
+			\end{center}
+			\setlength{\parindent}{0.5in}
+			
+			1. Note 1.
+			
+			
+			2. Note 2.
+			
+			
+			3. Note 3.
+			
+			\begin{workscited}
+				
+				\bibent
+				(Author(s)) \textit{citation 1} (year and where published).
+				
+				\bibent
+				(Author(s)) \textit{\href{URL}{citation 2}} (year and where published).
+				
+				
+			\end{workscited}
+			
+		\end{flushleft}
+	\end{document}
+	\}
