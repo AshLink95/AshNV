@@ -97,7 +97,7 @@ vim.api.nvim_create_autocmd("BufEnter", {pattern = "*", callback = function() --
 	end, 13)
 
 	vim.defer_fn(function() --TS highlight and indent
-		vim.keymap.set('n','<C-j>',toggle_ts,{desc = "Toggle treesitter hl & indent"})
+		vim.keymap.set('n','<C-n>',toggle_ts,{desc = "Toggle treesitter hl & indent"})
 	end, 14)
 end,})
 
