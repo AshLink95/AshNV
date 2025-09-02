@@ -64,10 +64,24 @@ vim.defer_fn(function() plg.nvimtree() plg.nvimtelescope() end, 15) --smoother d
 
 vim.defer_fn(function() plg.fugitive() plg.gitsigns() end, 20) --Git integration
 
-local check = false
+local check1 = false
 local function toggle_autocmp()
-	check = not check
-	plg.autocmp(check)
+	check1 = not check1
+	plg.autocmp(check1)
+end
+
+check2 = false
+function toggle_ts()
+	check2 = not check2
+    if (check2) then
+        print("TS inbound")
+        vim.cmd("TSBufEnable highlight")
+        vim.cmd("TSBufEnable indent")
+    else
+        print("TS out")
+        vim.cmd("TSBufDisable highlight")
+        vim.cmd("TSBufDisable indent")
+    end
 end
 
 vim.api.nvim_create_autocmd("BufEnter", {pattern = "*", callback = function() --on open
@@ -81,6 +95,10 @@ vim.api.nvim_create_autocmd("BufEnter", {pattern = "*", callback = function() --
 		vim.keymap.set('i','<C-a>',toggle_autocmp,{desc = "Toggle auto-complete menu"})
 		plg.snips(fp)
 	end, 13)
+
+	vim.defer_fn(function() --TS highlight and indent
+		vim.keymap.set('n','<C-j>',toggle_ts,{desc = "Toggle treesitter hl & indent"})
+	end, 14)
 end,})
 
 
